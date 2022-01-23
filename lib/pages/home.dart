@@ -1,4 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:imc/pages/sexo/sexo.dart';
+import 'package:imc/services/constants.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,52 +15,52 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text("Calculadora IMC"),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // --------- ALTURA ---------
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: "Altura",
-                border: UnderlineInputBorder(),
+      body: Padding(
+        padding: const EdgeInsets.all(kDefaultPadding),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Calculadora IMC',
+              style: TextStyle(
+                fontSize: 26,
               ),
             ),
-          ),
-
-          // --------- PESO ---------
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: "Peso",
-                border: UnderlineInputBorder(),
+            SizedBox(
+              height: kDefaultPadding,
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Image.asset('assets/images/home.png'),
+            ),
+            SizedBox(
+              height: kDefaultPadding,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: kPrimaryColor,
+                  shape: StadiumBorder(),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Sexo()),
+                  );
+                },
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: kDefaultPadding),
+                  child: Text(
+                    'Vamos lá!',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
               ),
             ),
-          ),
-
-          // --------- BOTAO ---------
-
-          Center(
-            child: TextButton(
-              child: Text("Calcular"),
-              onPressed: () {},
-            ),
-          ),
-
-          // -------- RESULTADO ---------
-
-          Center(
-            child: Text("RESULTADO IMC"),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
