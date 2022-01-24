@@ -1,29 +1,29 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:imc/pages/idade/idade.dart';
 import 'package:imc/services/constants.dart';
 
-class Body extends StatefulWidget {
-  const Body({Key? key}) : super(key: key);
+class sexoBody extends StatefulWidget {
+  const sexoBody({Key? key}) : super(key: key);
 
   @override
   _BodyState createState() => _BodyState();
 }
 
-class _BodyState extends State<Body> {
+class _BodyState extends State<sexoBody> {
   late int _value = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(kDefaultPadding),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
+             mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // ---------- HOMEM ----------
 
+                // ---------- HOMEM ----------
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -49,6 +49,8 @@ class _BodyState extends State<Body> {
                     ),
                   ],
                 ),
+
+                SizedBox(width: kDefaultPadding * 4),
 
                 // ---------- MULHER ----------
                 Column(
@@ -78,18 +80,21 @@ class _BodyState extends State<Body> {
                 ),
               ],
             ),
-            Container(
+        
+            //Botão
+            SizedBox(
               width: 200,
+              height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: kPrimaryColor,
                   shape: StadiumBorder(),
                 ),
                 onPressed: () {
-                  /* Navigator.push(
+                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Sexo()),
-                    ); */
+                      MaterialPageRoute(builder: (context) => Idade()),
+                    );
                 },
                 child: Text(
                   'Próximo',

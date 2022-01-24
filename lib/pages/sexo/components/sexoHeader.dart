@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:imc/services/constants.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+class sexoHeader extends StatelessWidget {
+  const sexoHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
