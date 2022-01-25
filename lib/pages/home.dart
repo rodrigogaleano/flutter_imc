@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: kDefaultPadding,
             ),
-            Container(
+            SizedBox(
               width: 200,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(

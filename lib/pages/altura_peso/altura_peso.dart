@@ -1,17 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:imc/pages/altura_peso/altura_peso.dart';
+import 'package:imc/pages/resultado/resultado.dart';
 import 'package:imc/services/constants.dart';
 
-class Idade extends StatefulWidget {
-  const Idade({Key? key}) : super(key: key);
+class AlturaPeso extends StatefulWidget {
+  const AlturaPeso({Key? key}) : super(key: key);
 
   @override
-  _IdadeState createState() => _IdadeState();
+  _AlturaPesoState createState() => _AlturaPesoState();
 }
 
-class _IdadeState extends State<Idade> {
+class _AlturaPesoState extends State<AlturaPeso> {
+  double sliderAltura = 50;
+  double sliderPeso = 10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,37 +58,62 @@ class _IdadeState extends State<Idade> {
 
           // ---------- CONTENT ---------
           Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 100,
-                child: TextField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    focusColor: kPrimaryColor,
-                    fillColor: kPrimaryColor,
-                    hoverColor: kPrimaryColor,
-                  ),
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: kPrimaryColor,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Text(
-                'Anos de idade.',
-                style: TextStyle(
-                  fontSize: 26,
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
 
+          Padding(
+            padding: const EdgeInsets.all(kDefaultPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ----- Altura -----
+                Text(
+                  'Altura: ${sliderAltura.round()} cm',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Slider(
+                  value: sliderAltura,
+                  min: 50,
+                  max: 200,
+                  onChanged: (double novaAltura) {
+                    setState(() {
+                      sliderAltura = novaAltura;
+                    });
+                  },
+                  label: sliderAltura.round().toString(),
+                  thumbColor: kPrimaryColor,
+                  activeColor: kPrimaryColor,
+                ),
+
+                SizedBox(height: kDefaultPadding),
+
+                // ----- Peso -----
+                Text(
+                  'Peso: ${sliderPeso.round()} kg',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Slider(
+                  value: sliderPeso,
+                  min: 10,
+                  max: 200,
+                  onChanged: (double novaAltura) {
+                    setState(() {
+                      sliderPeso = novaAltura;
+                    });
+                  },
+                  label: sliderPeso.round().toString(),
+                  thumbColor: kPrimaryColor,
+                  activeColor: kPrimaryColor,
+                ),
+              ],
+            ),
+          ),
           // ----- Botão -----
           Spacer(),
           Container(
@@ -103,11 +130,11 @@ class _IdadeState extends State<Idade> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AlturaPeso()),
+                    MaterialPageRoute(builder: (context) => Resultado()),
                   );
                 },
                 child: Text(
-                  'Próximo',
+                  'Calcular o IMC',
                   style: TextStyle(fontSize: 18),
                 ),
               ),
