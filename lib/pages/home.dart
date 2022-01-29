@@ -20,39 +20,46 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 50,
+            ),
             Text(
               'Calculadora IMC',
               style: TextStyle(
                 fontSize: 26,
               ),
             ),
-            SizedBox(
-              height: kDefaultPadding,
-            ),
+            Spacer(),
             SizedBox(
               width: double.infinity,
               child: Image.asset('assets/images/home.png'),
             ),
-            SizedBox(
-              height: kDefaultPadding,
+            Spacer(),
+            Text(
+              'O índice de massa corporal é uma medida internacional usada para calcular se uma pessoa está no peso ideal.',
+              style: TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
             ),
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: kPrimaryColor,
-                  shape: StadiumBorder(),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Sexo()),
-                  );
-                },
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: kDefaultPadding),
-                  child: Text(
+            Spacer(),
+            Container(
+              padding: EdgeInsets.all(kDefaultPadding),
+              alignment: Alignment.bottomRight,
+              child: SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: kPrimaryColor,
+                    shape: StadiumBorder(),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Sexo()),
+                    );
+                  },
+                  icon: Icon(Icons.favorite),
+                  label: Text(
                     'Vamos lá!',
                     style: TextStyle(fontSize: 18),
                   ),

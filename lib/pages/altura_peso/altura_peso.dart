@@ -13,7 +13,7 @@ class AlturaPeso extends StatefulWidget {
 
 class _AlturaPesoState extends State<AlturaPeso> {
   double sliderAltura = 50;
-  double sliderPeso = 10;
+  double sliderPeso = 25;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +76,7 @@ class _AlturaPesoState extends State<AlturaPeso> {
                 Slider(
                   value: sliderAltura,
                   min: 50,
-                  max: 200,
+                  max: 220,
                   onChanged: (double novaAltura) {
                     setState(() {
                       sliderAltura = novaAltura;
@@ -100,8 +100,8 @@ class _AlturaPesoState extends State<AlturaPeso> {
                 ),
                 Slider(
                   value: sliderPeso,
-                  min: 10,
-                  max: 200,
+                  min: 25,
+                  max: 150,
                   onChanged: (double novaAltura) {
                     setState(() {
                       sliderPeso = novaAltura;
